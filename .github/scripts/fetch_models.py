@@ -14,6 +14,12 @@ def compute_ratio(value_str: str) -> float:
     # 注意：不要提前化简，保持 (float * 1,000,000 / 500,000)
     return float(value_str) * 1_000_000 / 500_000
 
+def format_number(value: float) -> str:
+    # 用 12 位小数输出，去掉末尾多余的 0 和小数点
+    s = f"{value:.12f}".rstrip('0').rstrip('.')
+    # 如果结果形如 '.123'，补成 '0.123'
+    return s if not s.startswith('.') else '0' + s
+
 def build_maps(models):
     prompt_map_default = {}
     completion_map_default = {}
@@ -24,20 +30,24 @@ def build_maps(models):
         model_id = item.get("id", "")
         pricing = item.get("pricing", {})
         prompt_raw = pricing.get("prompt", "0")
-        comp_raw = pricing.get("completion", "0")
+        comp_raw   = pricing.get("completion", "0")
+
+        # 计算
+        prompt_ratio = compute_ratio(prompt_raw)
+        comp_ratio   = compute_ratio(comp_raw)
+
+        # 日志输出
+        print(f"[PROMPT]    {model_id}: raw={prompt_raw} → ratio={format_number(prompt_ratio)}")
+        print(f"[COMPLETION]{model_id}: raw={comp_raw}   → ratio={format_number(comp_ratio)}")
 
         # 默认 id
-        prompt_map_default[model_id] = compute_ratio(prompt_raw)
-        completion_map_default[model_id] = compute_ratio(comp_raw)
+        prompt_map_default[model_id]    = prompt_ratio
+        completion_map_default[model_id]= comp_ratio
 
-        # flexible id: 去除第一个斜杠之前的 provider/
-        if "/" in model_id:
-            flex_id = model_id.split("/", 1)[1]
-        else:
-            flex_id = model_id
-
-        prompt_map_flex[flex_id] = compute_ratio(prompt_raw)
-        completion_map_flex[flex_id] = compute_ratio(comp_raw)
+        # flexible id: 去除第一个 provider/
+        flex_id = model_id.split('/', 1)[1] if '/' in model_id else model_id
+        prompt_map_flex[flex_id]    = prompt_ratio
+        completion_map_flex[flex_id]= comp_ratio
 
     return {
         "default": {
@@ -50,20 +60,28 @@ def build_maps(models):
         }
     }
 
-def write_json(data: dict, path: str):
+def write_json_map(data: dict, path: str):
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    # 手工构造 JSON，确保数字不使用科学计数法
+    lines = ["{"]
+    for key, val in data.items():
+        num = format_number(val)
+        lines.append(f'  "{key}": {num},')
+    if len(lines) > 1:
+        lines[-1] = lines[-1].rstrip(',')  # 去掉最后一行多余逗号
+    lines.append("}")
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+        f.write("\n".join(lines) + "\n")
 
 def main():
     models = fetch_models()
     maps = build_maps(models)
 
-    # 写入 four files
-    write_json(maps["default"]["prompt"],      "defaults/model-ratios/openrouter/prompt.json")
-    write_json(maps["default"]["completion"],  "defaults/model-ratios/openrouter/completion.json")
-    write_json(maps["flexible"]["prompt"],     "defaults/model-ratios/flexible/prompt.json")
-    write_json(maps["flexible"]["completion"], "defaults/model-ratios/flexible/completion.json")
+    # 写入四个文件
+    write_json_map(maps["default"]["prompt"],      "defaults/model-ratios/openrouter/prompt.json")
+    write_json_map(maps["default"]["completion"],  "defaults/model-ratios/openrouter/completion.json")
+    write_json_map(maps["flexible"]["prompt"],     "defaults/model-ratios/flexible/prompt.json")
+    write_json_map(maps["flexible"]["completion"], "defaults/model-ratios/flexible/completion.json")
 
 if __name__ == "__main__":
     main()
