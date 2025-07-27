@@ -10,5 +10,4 @@
 
 - 模型倍率在 `prompt.json`, 补全倍率在 `completion.json`。
 - 对于定价多样的开源模型，我们会以官方提供价格记录。
-- 对于 OpenRouter, 会采取记录时的最高价格。
-- 为了避免混乱，会将 OpenRouter 这种采用特殊命名方式的放在专门的 `openrouter/` 目录中，在 Veloera 可以选择性获取。
+- 对于人类贡献，请在此目录下进行，`openrouter` 和任何其他目录都是由机器人维护的。
