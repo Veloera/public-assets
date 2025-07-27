@@ -1,50 +1,95 @@
-# Veloera Public Assets 服务条款
+# Terms of Service for Veloera Public Assets
 
-**生效日期：** 27, July, 2025
+**Effective Date:** 27 Jul, 2025
 
-## 1. 概述
+## Introduction
+Veloera Public Assets (hereinafter referred to as "the Service") is an independent online platform providing dynamically updated resources that complement the Veloera open-source ecosystem. These resources include automated update scripts, technical documentation, and other public assets designed to assist developers.  
 
-欢迎使用 **Veloera Public Assets**（以下简称“本服务”）。本服务由 **Veloera**（以下简称“我们”）提供，旨在为 Veloera 开源项目提供动态更新的线上资源，包括但不限于自动更新脚本、文档及其他公共资产。使用本服务即表示您同意遵守以下条款。
+**The Service is not part of the official Veloera project**. It is developed and maintained independently, and **there is no guarantee of compatibility or consistency with the official Veloera project or its releases**. Use of the Service is voluntary, and by continuing to use it, you agree to these Terms of Service ("Terms").
 
-## 2. 服务内容
+---
 
-* 本服务通过互联网（包括 GitHub Pages）提供访问。
-* 我们可能不定期更新或修改服务内容，而无需提前通知。
-* 服务包含可匿名调用的 API 端点，供用户按需使用。
+## Scope of the Service
+The Service is publicly accessible without registration and is provided free of charge. It is intended to promote open-source usage and innovation, allowing both personal and commercial utilization of the provided resources.
 
-## 3. 用户资格与责任
+The Service may evolve over time, and features or resources may be added, modified, or removed without notice. We also reserve the right to apply technical safeguards to ensure stable operations.
 
-* 本服务向所有用户开放，无需注册账户。
-* 用户在使用本服务时，不得进行任何滥用或非法活动，包括但不限于攻击服务、滥用 API、违反适用法律等。
+---
 
-## 4. 许可与知识产权
+## Acceptable Use
+Users must use the Service lawfully and responsibly. **Prohibited behaviors** include, but are not limited to:  
+- Overloading the Service infrastructure through excessive automated queries or abusive traffic patterns.  
+- Engaging in attacks, including DoS/DDoS, exploitation of vulnerabilities, or attempts to bypass security measures.  
+- Injecting or distributing malicious code via or in connection with the Service.  
+- Using the Service for illegal purposes or to violate applicable laws.
 
-* 本服务中的所有内容（包括但不限于自动更新脚本、文档及其他资产）均归 **Veloera** 所有。
-* 用户被授予非独占的许可，可以下载、再分发及修改本服务提供的资产。
-* 任何再分发必须注明来源，指明其源自 **Veloera Public Assets**。
+Violations may result in immediate suspension or termination of access.
 
-## 5. 隐私
+---
 
-* 本服务不收集任何个人信息。
-* 由于本服务托管于 GitHub Pages，GitHub 可能会依据其隐私政策收集相关访问日志。
+## Independence from the Official Veloera Project
+The Service operates independently and is not an official part of the Veloera project. While it may provide assets related to Veloera, **we make no representations or warranties that these assets will remain compatible with or supported by the official Veloera project**. Users should exercise caution when integrating assets and must independently verify compatibility with their environments.
 
-## 6. 免责声明
+---
 
-* 本服务按“原样”提供，不作任何明示或暗示的保证，包括但不限于适销性、特定用途适用性或无侵权性。
-* 我们不对服务的准确性、可靠性、可用性或合法性承担任何责任。
-* 在任何情况下，我们均不对因使用本服务而引起的任何直接、间接、偶然、特殊或后果性损害负责。
+## Intellectual Property and Licensing
+All resources provided through the Service, including scripts, documentation, and other materials, are owned by Veloera unless otherwise indicated. These assets are licensed under a permissive, non-exclusive license granting you the right to download, modify, and redistribute them.
 
-## 7. 责任限制
+**Attribution is required** when redistributing any assets from the Service, clearly indicating they originate from **Veloera Public Assets**.  
+No license is granted to use the Veloera trademarks, logos, or branding without express written permission.
 
-* 您同意自行承担使用本服务的风险。
-* 无论任何原因，我们对您或任何第三方的损失均不承担任何责任。
+---
 
-## 8. 法律适用与争议解决
+## Privacy and Data Handling
+The Service does not collect personal information. However, because the Service is hosted on GitHub Pages, GitHub may log access data in accordance with its privacy policies. By using the Service, you acknowledge that GitHub may process limited anonymous data.
 
-* 本条款受澳大利亚新南威尔士州法律管辖并依据其解释。
-* 任何因本条款引起的争议应提交仲裁解决，仲裁地点为新南威尔士州，仲裁语言为英语。
+---
 
-## 9. 条款变更
+## API Usage
+The Service provides APIs that can be used anonymously. To ensure fair access, users must refrain from excessive or abusive usage patterns. High-volume automated traffic may be throttled or blocked to protect the integrity of the Service.
 
-* 我们保留随时修改本条款的权利。
-* 修改后的条款将在发布后立即生效。用户继续使用本服务即视为接受修改后的条款。
+---
+
+## Disclaimer of Warranties
+The Service and all resources are provided **“AS IS”** without any warranty, whether express or implied. We do not warrant:
+- Compatibility of the Service or its assets with the official Veloera project or any third-party software.
+- Accuracy, completeness, or reliability of any resources.
+- Continuous, uninterrupted, or error-free operation of the Service.
+
+Use of the Service is at your own risk.
+
+---
+
+## Limitation of Liability
+To the maximum extent permitted by law, we shall not be held liable for any damages, including but not limited to loss of data, business interruption, loss of profits, or other consequential damages arising from use of or inability to use the Service.
+
+---
+
+## Common Dispute Scenarios
+Disputes may arise regarding attribution, service availability, licensing interpretations, or user conduct. Most issues can be resolved informally through communication. We explicitly state that we do not provide any monetary compensation or assume liability for such disputes.
+
+---
+
+## Alternative Dispute Resolution (ADR)
+We prefer to resolve disputes without involving courts or formal arbitration. **Any disagreements related to these Terms or the use of the Service shall first be addressed through good-faith discussions** between the parties.  
+
+If informal negotiation fails, disputes may proceed to alternative mechanisms, including but not limited to:
+- **Friendly negotiation** between involved parties.
+- **Mediation** by an independent neutral party agreed upon by both sides.
+- **Community-based arbitration** involving respected members of the open-source community to provide a non-binding resolution.
+
+These ADR mechanisms are intended to resolve conflicts efficiently, respectfully, and without legal proceedings. You agree to pursue these steps before considering any legal action.
+
+---
+
+## Modifications to the Terms
+We may revise these Terms at any time without prior notice. Updated versions will become effective immediately upon publication. Your continued use of the Service constitutes acceptance of the latest version.
+
+---
+
+## Entire Agreement
+These Terms represent the entire agreement between you and the Veloera Public Assets Service, superseding any prior discussions or agreements. No waiver of any provision shall constitute a waiver of any other provision.
+
+---
+
+_Last Updated: 27 Jul, 2025_
