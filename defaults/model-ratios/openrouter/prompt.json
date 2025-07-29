@@ -1,5 +1,4 @@
 {
-  "01-ai/yi-large": 1.5,
   "agentica-org/deepcoder-14b-preview": 0.0075,
   "agentica-org/deepcoder-14b-preview:free": 0,
   "ai21/jamba-1.6-large": 1,
@@ -21,7 +20,6 @@
   "anthropic/claude-3-sonnet": 1.5,
   "anthropic/claude-3.5-haiku": 0.4,
   "anthropic/claude-3.5-haiku-20241022": 0.4,
-  "anthropic/claude-3.5-haiku-20241022:beta": 0.4,
   "anthropic/claude-3.5-haiku:beta": 0.4,
   "anthropic/claude-3.5-sonnet": 1.5,
   "anthropic/claude-3.5-sonnet-20240620": 1.5,
@@ -177,7 +175,7 @@
   "mistralai/pixtral-12b": 0.05,
   "mistralai/pixtral-large-2411": 1,
   "moonshotai/kimi-dev-72b:free": 0,
-  "moonshotai/kimi-k2": 0.07,
+  "moonshotai/kimi-k2": 0.065,
   "moonshotai/kimi-k2:free": 0,
   "moonshotai/kimi-vl-a3b-thinking": 0.019,
   "moonshotai/kimi-vl-a3b-thinking:free": 0,
@@ -316,5 +314,7 @@
   "x-ai/grok-3-mini-beta": 0.15,
   "x-ai/grok-4": 1.5,
   "x-ai/grok-vision-beta": 2.5,
-  "z-ai/glm-4-32b": 0.05
+  "z-ai/glm-4-32b": 0.05,
+  "z-ai/glm-4.5": 0.3,
+  "z-ai/glm-4.5-air": 0.1
 }

@@ -12,7 +12,6 @@
   "claude-3-sonnet": 1.5,
   "claude-3.5-haiku": 0.4,
   "claude-3.5-haiku-20241022": 0.4,
-  "claude-3.5-haiku-20241022:beta": 0.4,
   "claude-3.5-haiku:beta": 0.4,
   "claude-3.5-sonnet": 1.5,
   "claude-3.5-sonnet-20240620": 1.5,
@@ -79,6 +78,8 @@
   "gemma-3n-e4b-it": 0.01,
   "glm-4-32b": 0.12,
   "glm-4.1v-9b-thinking": 0.0175,
+  "glm-4.5": 0.3,
+  "glm-4.5-air": 0.1,
   "glm-z1-32b": 0.015,
   "goliath-120b": 4.5,
   "gpt-3.5-turbo": 0.25,
@@ -119,7 +120,7 @@
   "internvl3-14b": 0.1,
   "jamba-1.6-large": 1,
   "jamba-1.6-mini": 0.1,
-  "kimi-k2": 0.07,
+  "kimi-k2": 0.065,
   "kimi-vl-a3b-thinking": 0.019,
   "l3-euryale-70b": 0.74,
   "l3-lunaris-8b": 0.01,
@@ -257,6 +258,5 @@
   "valkyrie-49b-v1": 0.325,
   "virtuoso-large": 0.375,
   "weaver": 0.75,
-  "wizardlm-2-8x22b": 0.24,
-  "yi-large": 1.5
+  "wizardlm-2-8x22b": 0.24
 }
