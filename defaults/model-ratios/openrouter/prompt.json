@@ -314,6 +314,6 @@
   "x-ai/grok-vision-beta": 2.5,
   "z-ai/glm-4-32b": 0.05,
   "z-ai/glm-4.5": 0.1,
-  "z-ai/glm-4.5-air": 0.095,
+  "z-ai/glm-4.5-air": 0.1,
   "z-ai/glm-4.5-air:free": 0
 }
