@@ -43,24 +43,19 @@ def build_maps(models):
         prompt_raw = pricing.get("prompt", "0")
         comp_raw = pricing.get("completion", "0")
 
-        # 重新计算:
         prompt_ratio = float(prompt_raw) * 1_000_000 / 2
         numerator = float(comp_raw) * 1_000_000
         denominator = float(prompt_raw) * 1_000_000
         comp_ratio = numerator / denominator if denominator != 0 else 0
 
-        # 跳过负值模型
         if prompt_ratio < 0 or comp_ratio < 0:
             continue
 
-        # 默认 mapping
         prompt_map_default[model_id] = prompt_ratio
         completion_map_default[model_id] = comp_ratio
 
-        # flexible id: 去除 provider/
         flex_id = model_id.split('/', 1)[1] if '/' in model_id else model_id
 
-        # 在 flexible 中忽略 prompt/completion 均为0, 及名称 auto 和 router
         if not (prompt_ratio == 0 and comp_ratio == 0) and flex_id not in ("auto", "router"):
             prompt_map_flex[flex_id] = prompt_ratio
             completion_map_flex[flex_id] = comp_ratio
@@ -70,9 +65,14 @@ def build_maps(models):
         "flexible": {"prompt": prompt_map_flex, "completion": completion_map_flex}
     }
 
+def build_mixed_map(default_map: dict, flex_map: dict):
+    # flexible 映射将覆盖 default 中的同名键
+    mixed_map = default_map.copy()
+    mixed_map.update(flex_map)
+    return mixed_map
+
 def write_json_map(data: dict, path: str):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    # 按字母表顺序排序 key
     keys = sorted(data.keys())
     lines = ["{"]
     for key in keys:
@@ -89,11 +89,21 @@ def main():
     models = fetch_models()
     maps = build_maps(models)
 
-    # 写入四个文件，JSON 输出均按键排序
+    # 写入默认映射
     write_json_map(maps["default"]["prompt"],     "defaults/model-ratios/openrouter/prompt.json")
     write_json_map(maps["default"]["completion"], "defaults/model-ratios/openrouter/completion.json")
+
+    # 写入 flexible 映射
     write_json_map(maps["flexible"]["prompt"],    "defaults/model-ratios/flexible/prompt.json")
     write_json_map(maps["flexible"]["completion"],"defaults/model-ratios/flexible/completion.json")
+
+    # 构建 mixed 映射（flexible 覆盖 default 同名 key）
+    mixed_prompt = build_mixed_map(maps["default"]["prompt"], maps["flexible"]["prompt"])
+    mixed_completion = build_mixed_map(maps["default"]["completion"], maps["flexible"]["completion"])
+
+    # 写入 mixed 映射
+    write_json_map(mixed_prompt,     "defaults/model-ratios/mixed/prompt.json")
+    write_json_map(mixed_completion, "defaults/model-ratios/mixed/completion.json")
 
 if __name__ == "__main__":
     main()
