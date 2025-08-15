@@ -291,7 +291,6 @@
   "thedrummer/rocinante-12b": 2.368421052632,
   "thedrummer/skyfall-36b-v2": 4.001944789585,
   "thedrummer/unslopnemo-12b": 1,
-  "thedrummer/valkyrie-49b-v1": 1.538461538462,
   "thudm/glm-4-32b": 1,
   "thudm/glm-4.1v-9b-thinking": 3.942857142857,
   "thudm/glm-z1-32b": 4.001944789585,
@@ -311,5 +310,5 @@
   "z-ai/glm-4.5": 4.001944789585,
   "z-ai/glm-4.5-air": 5.5,
   "z-ai/glm-4.5-air:free": 0,
-  "z-ai/glm-4.5v": 3.6
+  "z-ai/glm-4.5v": 3.4
 }
