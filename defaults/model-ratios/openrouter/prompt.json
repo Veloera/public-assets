@@ -34,6 +34,7 @@
   "baidu/ernie-4.5-21b-a3b": 0.035,
   "baidu/ernie-4.5-300b-a47b": 0.14,
   "baidu/ernie-4.5-vl-28b-a3b": 0.07,
+  "baidu/ernie-4.5-vl-424b-a47b": 0.21,
   "bytedance/ui-tars-1.5-7b": 0.05,
   "cognitivecomputations/dolphin-mistral-24b-venice-edition:free": 0,
   "cognitivecomputations/dolphin-mixtral-8x22b": 0.45,
