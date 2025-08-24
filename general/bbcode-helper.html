@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>BBCode 文字渐变生成器</title>
-<style>
-  body { font-family: Arial, sans-serif; padding: 20px; }
-  input, textarea, button { margin: 5px 0; padding: 5px; width: 100%; }
-  textarea { height: 150px; }
-</style>
+  <meta charset="UTF-8">
+  <title>BBCode 渐变文字生成器 (基于 GradientEditor.js)</title>
+  <link href="https://cdn.jsdelivr.net/gh/lucky-yoolk/gradienteditor.js@main/gradient-editor.css" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .preview-box { width: 100%; height: 60px; border: 1px solid #ccc; margin: 10px 0; }
+    textarea { width: 100%; height: 200px; margin-top: 10px; }
+  </style>
 </head>
 <body>
-<h2>BBCode 渐变文字生成器</h2>
+  <h2>BBCode 渐变文字生成器</h2>
 
-<label>输入文字:</label>
-<input type="text" id="text" placeholder="输入要渐变的文字">
+  <div id="gradient-input"></div>
+  <div class="preview-box"></div>
 
-<label>起始颜色（HEX）:</label>
-<input type="color" id="startColor" value="#ff0000">
+  <label>输入文字:</label>
+  <input type="text" id="text" placeholder="在这里输入文字">
 
-<label>结束颜色（HEX）:</label>
-<input type="color" id="endColor" value="#0000ff">
+  <button onclick="generateBBCode()">生成 BBCode</button>
 
-<button onclick="generateBBCode()">生成 BBCode</button>
+  <h3>输出 BBCode:</h3>
+  <textarea id="output" readonly></textarea>
 
-<h3>输出 BBCode:</h3>
-<textarea id="output" readonly></textarea>
+  <script src="https://cdn.jsdelivr.net/gh/lucky-yoolk/gradienteditor.js@main/gradient-editor.min.js"></script>
+  <script>
+    // 初始化 GradientEditor
+    const gradientEditor = new GradientEditor("#gradient-input", {
+      defaultValue: "linear-gradient(to right, #ff0000, #0000ff)",
+      previewContainer: ".preview-box",
+      showTemplates: true,
+      showDirectionToggle: true,
+      showDirectionDegrees: true
+    });
 
-<script>
-function hexToRgb(hex) {
-    hex = hex.replace('#','');
-    return {
+    // 工具函数
+    function hexToRgb(hex) {
+      hex = hex.replace('#','');
+      return {
         r: parseInt(hex.substring(0,2),16),
         g: parseInt(hex.substring(2,4),16),
         b: parseInt(hex.substring(4,6),16)
-    };
-}
-
-function rgbToHex(r,g,b) {
-    const toHex = x => x.toString(16).padStart(2,'0');
-    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-}
-
-function generateBBCode() {
-    const text = document.getElementById('text').value;
-    const start = hexToRgb(document.getElementById('startColor').value);
-    const end = hexToRgb(document.getElementById('endColor').value);
-    const len = text.length;
-    if(len === 0) return alert("请输入文字");
-
-    let bbcode = '';
-    for(let i=0;i<len;i++){
-        const r = Math.round(start.r + (end.r-start.r)*i/(len-1));
-        const g = Math.round(start.g + (end.g-start.g)*i/(len-1));
-        const b = Math.round(start.b + (end.b-start.b)*i/(len-1));
-        const hex = rgbToHex(r,g,b);
-        bbcode += `[color=${hex}]${text[i]}[/color]`;
+      };
     }
-    document.getElementById('output').value = bbcode;
-}
-</script>
+    function rgbToHex(r,g,b) {
+      const toHex = x => x.toString(16).padStart(2,'0');
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    }
+
+    // 获取渐变颜色（线性插值）
+    function getGradientColors(text, colorStops) {
+      const len = text.length;
+      if(len === 0) return [];
+
+      const colors = [];
+      for (let i=0; i<len; i++) {
+        const pos = (i / (len-1)) * 100; // 百分比
+        // 找到所在的 colorStop 区间
+        let prev = colorStops[0], next = colorStops[colorStops.length-1];
+        for (let j=0; j<colorStops.length-1; j++) {
+          if (pos >= colorStops[j].position && pos <= colorStops[j+1].position) {
+            prev = colorStops[j];
+            next = colorStops[j+1];
+            break;
+          }
+        }
+        // 插值
+        const t = (pos - prev.position) / (next.position - prev.position);
+        const r = Math.round(prev.rgb.r + (next.rgb.r - prev.rgb.r) * t);
+        const g = Math.round(prev.rgb.g + (next.rgb.g - prev.rgb.g) * t);
+        const b = Math.round(prev.rgb.b + (next.rgb.b - prev.rgb.b) * t);
+        colors.push(rgbToHex(r,g,b));
+      }
+      return colors;
+    }
+
+    function generateBBCode() {
+      const text = document.getElementById("text").value;
+      if (!text) return alert("请输入文字");
+
+      // 读取 GradientEditor 当前色标
+      const stops = gradientEditor.colorStops.map(cs => ({
+        position: cs.position,
+        rgb: hexToRgb(cs.color.startsWith("#") ? cs.color : rgbaToHex(cs.color))
+      }));
+
+      // 生成颜色数组
+      const colors = getGradientColors(text, stops);
+
+      // 拼接 BBCode
+      let bbcode = "";
+      for (let i=0; i<text.length; i++) {
+        bbcode += `[color=${colors[i]}]${text[i]}[/color]`;
+      }
+      document.getElementById("output").value = bbcode;
+    }
+
+    // 辅助：rgba 转 hex
+    function rgbaToHex(rgba) {
+      const parts = rgba.match(/rgba?\((\d+), *(\d+), *(\d+)/i);
+      if (!parts) return "#000000";
+      return rgbToHex(+parts[1], +parts[2], +parts[3]);
+    }
+  </script>
 </body>
 </html>
