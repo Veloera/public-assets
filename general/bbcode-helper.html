@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>BBCode 文字渐变生成器</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  input, textarea, button { margin: 5px 0; padding: 5px; width: 100%; }
+  textarea { height: 150px; }
+</style>
+</head>
+<body>
+<h2>BBCode 渐变文字生成器</h2>
+
+<label>输入文字:</label>
+<input type="text" id="text" placeholder="输入要渐变的文字">
+
+<label>起始颜色（HEX）:</label>
+<input type="color" id="startColor" value="#ff0000">
+
+<label>结束颜色（HEX）:</label>
+<input type="color" id="endColor" value="#0000ff">
+
+<button onclick="generateBBCode()">生成 BBCode</button>
+
+<h3>输出 BBCode:</h3>
+<textarea id="output" readonly></textarea>
+
+<script>
+function hexToRgb(hex) {
+    hex = hex.replace('#','');
+    return {
+        r: parseInt(hex.substring(0,2),16),
+        g: parseInt(hex.substring(2,4),16),
+        b: parseInt(hex.substring(4,6),16)
+    };
+}
+
+function rgbToHex(r,g,b) {
+    const toHex = x => x.toString(16).padStart(2,'0');
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+function generateBBCode() {
+    const text = document.getElementById('text').value;
+    const start = hexToRgb(document.getElementById('startColor').value);
+    const end = hexToRgb(document.getElementById('endColor').value);
+    const len = text.length;
+    if(len === 0) return alert("请输入文字");
+
+    let bbcode = '';
+    for(let i=0;i<len;i++){
+        const r = Math.round(start.r + (end.r-start.r)*i/(len-1));
+        const g = Math.round(start.g + (end.g-start.g)*i/(len-1));
+        const b = Math.round(start.b + (end.b-start.b)*i/(len-1));
+        const hex = rgbToHex(r,g,b);
+        bbcode += `[color=${hex}]${text[i]}[/color]`;
+    }
+    document.getElementById('output').value = bbcode;
+}
+</script>
+</body>
+</html>
