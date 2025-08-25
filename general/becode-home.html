@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Becode 公益站 - 免费 Claude API 服务</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --google-blue: #4285f4;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc05;
+            --google-green: #34a853;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --background: #ffffff;
+            --surface: #f8f9fa;
+            --border: #e8eaed;
+            --community-purple: #8e24aa;
+            --community-teal: #00897b;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', sans-serif;
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" fill-opacity="0.1"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e3f2fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--google-blue);
+            color: white;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #3367d6;
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Setup Guide Section */
+        .setup-guide {
+            padding: 80px 0;
+            background: var(--surface);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .setup-steps {
+            display: grid;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .setup-step {
+            background: var(--background);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--google-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .step-content {
+            margin-left: 0;
+        }
+
+        .warning-box {
+            background: #fef7f0;
+            border: 1px solid #f4b385;
+            border-left: 4px solid var(--google-red);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .warning-box .material-icons {
+            color: var(--google-red);
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .code-block {
+            background: #1f1f1f;
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #e8eaed;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin: 1rem 0;
+        }
+
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--google-blue), var(--google-green));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .code-block .comment {
+            color: #9aa0a6;
+        }
+
+        .code-block .string {
+            color: #a8c7fa;
+        }
+
+        .code-block .keyword {
+            color: #d2e3fc;
+        }
+
+        .tip-box {
+            background: #e8f0fe;
+            border: 1px solid #bbdefb;
+            border-left: 4px solid var(--google-blue);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tip-box .material-icons {
+            color: var(--google-blue);
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: var(--background);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: var(--background);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-icon.blue { background: var(--google-blue); }
+        .feature-icon.green { background: var(--google-green); }
+        .feature-icon.red { background: var(--google-red); }
+        .feature-icon.yellow { background: var(--google-yellow); }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 120px 0;
+            background: var(--surface);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .community-card {
+            background: var(--background);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .community-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .community-icon.qq {
+            background: var(--community-purple);
+        }
+
+        .community-icon.tg {
+            background: var(--community-teal);
+        }
+
+        .community-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .community-id {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 12px;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .community-id:hover {
+            background: var(--google-blue);
+            color: white;
+            border-color: var(--google-blue);
+        }
+
+        .community-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .community-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--google-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background: var(--background);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--background);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--surface);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: #f1f3f4;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .setup-step {
+                padding: 1.5rem;
+            }
+
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .community-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Becode 公益站</h1>
+                <p class="hero-subtitle">免费的 Claude API 服务平台</p>
+                <p class="hero-description">
+                    为开发者提供稳定、高质量的 AI API 访问服务，让每个人都能享受到先进的人工智能技术
+                </p>
+                <div class="cta-buttons">
+                    <a href="#setup-guide" class="btn btn-primary">
+                        <span class="material-icons">rocket_launch</span>
+                        快速设置
+                    </a>
+                    <a href="#community" class="btn btn-secondary">
+                        <span class="material-icons">groups</span>
+                        加入社区
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setup Guide Section -->
+    <section id="setup-guide" class="setup-guide">
+        <div class="container">
+            <h2 class="section-title">详细设置指南</h2>
+            <p class="section-subtitle">
+                按照以下步骤快速配置您的开发环境
+            </p>
+
+            <div class="setup-steps">
+                <div class="setup-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">获取 API 令牌</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>首先需要创建您的专属 API 访问令牌：</p>
+                        
+                        <div class="warning-box">
+                            <span class="material-icons">warning</span>
+                            <strong>重要提示：请勿选择 default 分组！该分组无法正常使用。</strong>
+                            选择其他可用的模型分组来创建令牌。
+                        </div>
+
+                        <p>根据您的使用场景选择合适的模型分组：</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>标准使用</strong>：选择常规模型分组</li>
+                            <li><strong>Claude Code 之外使用</strong>：选择 1.5x 倍率的 "想用其他模型选我" 分组</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">环境配置</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>根据您的需求选择合适的配置方式：</p>
+
+                        <h4 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">方案一：临时配置（推荐测试使用）</h4>
+                        <p>在每次运行 claude 命令前，先设置环境变量：</p>
+                        <div class="code-block">
+<span class="keyword">export</span> <span class="string">ANTHROPIC_AUTH_TOKEN</span>=<span class="string">"您的API令牌"</span> <br />
+<span class="keyword">export</span> <span class="string">ANTHROPIC_BASE_URL</span>=<span class="string">"https://becode.be-a.dev"</span>
+                        </div>
+                        <div class="tip-box">
+                            <span class="material-icons">lightbulb</span>
+                            这种方式只在当前终端会话有效，重启终端后需要重新设置。
+                        </div>
+
+                        <h4 style="margin: 1.5rem 0 1rem 0; color: var(--text-primary);">方案二：永久配置（推荐生产环境）</h4>
+                        <p>编辑配置文件，设置永久环境变量：</p>
+                        <div class="code-block">
+<div class="comment"># 编辑配置文件（如果不存在请创建）</div>
+<span class="keyword">nano</span> <span class="string">~/.claude/settings.json</span>
+
+<div class="comment"># 文件内容如下：</div>
+{
+    <span class="string">"env"</span>: {
+        <span class="string">"ANTHROPIC_AUTH_TOKEN"</span>: <span class="string">"您的API令牌"</span>,
+        <span class="string">"ANTHROPIC_BASE_URL"</span>: <span class="string">"https://becode.be-a.dev"</span>
+    }
+}
+                        </div>
+                        <div class="tip-box">
+                            <span class="material-icons">lightbulb</span>
+                            保存文件后，所有 claude 命令都会自动使用这些配置，无需每次手动设置。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">验证配置</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>配置完成后，运行测试命令验证是否设置成功：</p>
+                        <div class="code-block">
+<div class="comment"># 测试连接</div>
+<span class="keyword">claude</span> <span class="string">"你好"</span>
+
+<div class="comment"># 或者使用版本检查</div>
+<span class="keyword">claude</span> <span class="string">--version</span>
+                        </div>
+
+                        <div class="warning-box">
+                            <span class="material-icons">warning</span>
+                            <strong>重要提醒：请勿使用 Claude Code Router 或类似软件！</strong><br>
+                            我们的服务提供原生 Claude Code 支持，直接使用我们的 API 端点即可。
+                        </div>
+
+                        <p>如果遇到问题，请检查：</p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem; color: var(--text-secondary);">
+                            <li>API 令牌是否正确</li>
+                            <li>配置文件路径是否为 ~/.claude/settings.json</li>
+                            <li>网络连接是否正常</li>
+                            <li>是否选择了正确的模型分组</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">核心优势</h2>
+            <p class="section-subtitle">
+                我们致力于为全球开发者社区提供最优质的 AI 服务访问体验
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <span class="material-icons">speed</span>
+                    </div>
+                    <h3>高性能服务</h3>
+                    <p>原生 Claude Code 支持，无需使用 Router，提供最优性能和稳定性体验</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <span class="material-icons">security</span>
+                    </div>
+                    <h3>安全可靠</h3>
+                    <p>数据加密传输，隐私保护机制，确保您的数据和使用安全无忧</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon red">
+                        <span class="material-icons">favorite</span>
+                    </div>
+                    <h3>完全免费</h3>
+                    <p>无隐藏费用，无使用限制，公益性质服务，让 AI 技术触手可及</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon yellow">
+                        <span class="material-icons">support_agent</span>
+                    </div>
+                    <h3>社区支持</h3>
+                    <p>活跃的开发者社区，及时的技术支持，兑换码惊喜掉落</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community">
+        <div class="container">
+            <h2 class="section-title">加入我们的社区</h2>
+            <p class="section-subtitle">
+                与开发者们一起交流、学习和成长
+            </p>
+
+            <div class="community-grid">
+                <div class="community-card">
+                    <div class="community-icon qq">
+                        <span class="material-icons">chat</span>
+                    </div>
+                    <h3>QQ 群</h3>
+                    <div class="community-id">1031336189</div>
+                    <p class="community-description">
+                        加入我们的 QQ 群，与国内开发者实时交流技术问题，获取最新的使用技巧和更新通知。
+                    </p>
+                    <div class="community-stats">
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">成员</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">活跃</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="community-icon tg">
+                        <span class="material-icons">language</span>
+                    </div>
+                    <h3>Telegram</h3>
+                    <div class="community-id">@plexusgroup</div>
+                    <p class="community-description">
+                        加入我们的 Telegram 群组，与国际开发者社区交流，获取全球最新的 AI 技术动态。
+                    </p>
+                    <div class="community-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">成员</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">全球</div>
+                            <div class="stat-label">覆盖</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <p class="section-subtitle">
+                快速解答您在使用过程中可能遇到的问题
+            </p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>为什么不能使用 Claude Code Router？</span>
+                        <span class="material-icons faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        我们的平台提供原生 Claude Code 支持，无需使用 Claude Code Router。直接使用我们的 API 端点能获得更好的性能和稳定性。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>什么是 1.5x 倍率的分组？</span>
+                        <span class="material-icons faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        这是针对非 Claude Code 使用场景优化的特殊分组，提供更高的性能和优先级处理，适合在 Claude Code 之外使用我们的服务。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>兑换码在哪里获取？</span>
+                        <span class="material-icons faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        兑换码会不定期在关于页面、官方公告和社区活动中发布。建议经常查看我们的更新页面，获取最新的惊喜福利。
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>遇到连接错误怎么办？</span>
+                        <span class="material-icons faq-icon">expand_more</span>
+                    </div>
+                    <div class="faq-answer">
+                        请检查：1) 网络连接是否正常；2) API令牌是否正确；3) Base URL 是否设置为 https://becode.be-a.dev；4) 是否选择了正确的模型分组。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>开始您的 AI 开发之旅</h2>
+            <p>加入我们的开发者社区，享受免费、稳定的 Claude API 服务</p>
+            <div class="cta-buttons">
+                <a href="#setup-guide" class="btn btn-primary" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);">
+                    <span class="material-icons">play_arrow</span>
+                    立即开始设置
+                </a>
+                <a href="#community" class="btn btn-secondary" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);">
+                    <span class="material-icons">groups</span>
+                    加入社区讨论
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.setup-step, .feature-card, .community-card, .faq-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
