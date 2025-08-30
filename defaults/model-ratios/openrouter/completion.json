@@ -191,7 +191,6 @@
   "nousresearch/hermes-3-llama-3.1-70b": 2.8,
   "nousresearch/hermes-4-405b": 4.001944789585,
   "nousresearch/hermes-4-70b": 4.001944789585,
-  "nousresearch/nous-hermes-2-mixtral-8x7b-dpo": 1,
   "nvidia/llama-3.1-nemotron-70b-instruct": 2.5,
   "nvidia/llama-3.1-nemotron-ultra-253b-v1": 3,
   "nvidia/llama-3.1-nemotron-ultra-253b-v1:free": 0,
