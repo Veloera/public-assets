@@ -7,6 +7,8 @@
   "aion-labs/aion-1.0-mini": 2,
   "aion-labs/aion-rp-llama-3.1-8b": 1,
   "alfredpros/codellama-7b-instruct-solidity": 1.571428571429,
+  "allenai/molmo-7b-d": 2,
+  "allenai/olmo-2-0325-32b-instruct": 1.5,
   "alpindale/goliath-120b": 1.375,
   "amazon/nova-lite-v1": 4,
   "amazon/nova-micro-v1": 4,
