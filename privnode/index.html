@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privnode — Claude Code 中转服务</title>
+  <!-- Tailwind Play CDN for quick single-file styling (good for prototypes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Small tweaks to evoke shadcn/ui aesthetic */
+    :root { --radius: 12px; }
+    .card { border-radius: var(--radius); box-shadow: 0 6px 24px rgba(15,23,42,0.06); }
+    .muted { color: rgb(107 114 128); }
+    pre.code { white-space: pre-wrap; word-break: break-word; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Noto Mono", monospace; font-size: 0.92rem; }
+    .badge { background: linear-gradient(180deg, #f8fafc, #eef2ff); border: 1px solid rgba(99,102,241,0.08); color: #4f46e5; padding: 0.25rem 0.6rem; border-radius: 999px; font-weight:600; }
+    .pill { background:#111827; color:white; padding:0.25rem 0.5rem; border-radius:999px; font-size:0.8rem }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <div class="min-h-screen flex items-start justify-center p-6">
+    <main class="max-w-3xl w-full">
+      <!-- Header -->
+      <header class="flex items-center justify-between mb-6">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold">PV</div>
+            <div>
+              <h1 class="text-2xl font-semibold">Privnode</h1>
+              <p class="text-sm muted">Claude Code 中转服务</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="badge">¥1 = $1 站内额度</div>
+          <div class="mt-2 text-sm muted">CC 分组常态化 0.3 倍率 • 禁止二次分发</div>
+        </div>
+      </header>
+
+      <!-- Card: Summary -->
+      <section class="card bg-white p-6 mb-4">
+        <div class="flex items-start justify-between">
+          <div>
+            <h2 class="text-lg font-semibold">使用须知</h2>
+            <p class="mt-2 muted">您 <strong>必须</strong> 使用 <span class="font-medium">Claude Code Router</span> 以使用本服务。</p>
+          </div>
+          <div class="ml-4">
+            <span class="pill">禁止二次分发</span>
+          </div>
+        </div>
+        <div class="mt-4 text-sm">
+          <p>下面提供一个示例配置。代码块默认折叠，点击展开并可复制。</p>
+        </div>
+      </section>
+
+      <!-- Card: Collapsible code -->
+      <section class="card bg-white p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-base font-medium">示例配置</h3>
+          <div class="text-sm muted">JSON · 示例</div>
+        </div>
+
+        <details class="rounded-md border border-slate-100 overflow-hidden" id="configDetails">
+          <summary class="flex items-center justify-between cursor-pointer p-4 bg-slate-50">
+            <span class="text-sm">点击展开配置</span>
+            <div class="flex items-center gap-2">
+              <button id="copyBtnSummary" class="text-sm px-3 py-1 rounded-md border border-slate-200 muted">复制</button>
+              <svg id="chev" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </summary>
+
+          <div class="p-4 border-t border-slate-100 bg-white">
+            <div class="relative">
+              <pre class="code rounded-md p-4 bg-slate-900 text-slate-100" id="configCode"><code>{
+  "LOG": false,
+  "LOG_LEVEL": "debug",
+  "CLAUDE_PATH": "",
+  "HOST": "127.0.0.1",
+  "PORT": 3456,
+  "APIKEY": "",
+  "API_TIMEOUT_MS": "600000",
+  "PROXY_URL": "",
+  "transformers": [],
+  "Providers": [
+    {
+      "name": "privnodepro",
+      "api_base_url": "https://pro.privnode.com/v1/chat/completions",
+      "api_key": "您的 API KEY",
+      "models": [
+        "claude-sonnet-4-20250514",
+        "claude-3-5-haiku-20241022"
+      ],
+      "transformer": {
+        "use": [
+          "openrouter"
+        ]
+      }
+    }
+  ],
+  "StatusLine": {
+    "enabled": false,
+    "currentStyle": "default",
+    "default": { "modules": [] },
+    "powerline": { "modules": [] }
+  },
+  "Router": {
+    "default": "privnodepro,claude-sonnet-4-20250514",
+    "background": "privnodepro,claude-3-5-haiku-20241022",
+    "think": "privnodepro,claude-sonnet-4-20250514",
+    "longContext": "privnodepro,claude-sonnet-4-20250514",
+    "longContextThreshold": 60000,
+    "webSearch": "privnodepro,claude-sonnet-4-20250514",
+    "image": ""
+  },
+  "CUSTOM_ROUTER_PATH": ""
+}</code></pre>
+
+              <div class="absolute top-2 right-2 flex items-center gap-2">
+                <button id="copyBtn" class="text-sm bg-white px-3 py-1 rounded-md border">复制</button>
+                <button id="openRaw" class="text-sm bg-indigo-600 text-white px-3 py-1 rounded-md">在新窗口打开</button>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <div class="mt-4 text-xs muted">提示：请将示例中的 <code>api_key</code> 替换为您的真实 KEY，切勿二次分发本配置。</div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-6 text-center muted text-sm">
+        © Privnode • 仅供内部/受权方使用
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Toggle chevron direction
+    const details = document.getElementById('configDetails');
+    const chev = document.getElementById('chev');
+    details.addEventListener('toggle', () => {
+      if (details.open) chev.style.transform = 'rotate(180deg)';
+      else chev.style.transform = 'rotate(0deg)';
+    });
+
+    // Copy functionality
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        // small visual feedback
+        alert('已复制到剪贴板');
+      }).catch(() => alert('复制失败'));
+    }
+    const codeEl = document.getElementById('configCode');
+    document.getElementById('copyBtn').addEventListener('click', () => copyText(codeEl.innerText));
+    document.getElementById('copyBtnSummary').addEventListener('click', () => copyText(codeEl.innerText));
+
+    // Open raw in new window
+    document.getElementById('openRaw').addEventListener('click', () => {
+      const w = window.open('', '_blank');
+      w.document.write('<pre>'+escapeHtml(codeEl.innerText)+'</pre>');
+      w.document.title = 'privnode-config.json';
+    });
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+  </script>
+</body>
+</html>
