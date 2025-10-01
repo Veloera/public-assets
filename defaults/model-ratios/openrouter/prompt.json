@@ -70,7 +70,7 @@
   "deepseek/deepseek-r1-distill-qwen-32b": 0.135,
   "deepseek/deepseek-r1:free": 0,
   "deepseek/deepseek-v3.1-base": 0.125,
-  "deepseek/deepseek-v3.1-terminus": 0.135,
+  "deepseek/deepseek-v3.1-terminus": 0.115,
   "deepseek/deepseek-v3.2-exp": 0.135,
   "eleutherai/llemma_7b": 0.4,
   "google/gemini-2.0-flash-001": 0.05,
@@ -97,7 +97,7 @@
   "google/gemma-3n-e2b-it:free": 0,
   "google/gemma-3n-e4b-it": 0.01,
   "google/gemma-3n-e4b-it:free": 0,
-  "gryphe/mythomax-l2-13b": 0.03,
+  "gryphe/mythomax-l2-13b": 0.025,
   "inception/mercury": 0.125,
   "inception/mercury-coder": 0.125,
   "inflection/inflection-3-pi": 1.25,
@@ -321,8 +321,9 @@
   "x-ai/grok-4-fast:free": 0,
   "x-ai/grok-code-fast-1": 0.1,
   "z-ai/glm-4-32b": 0.05,
-  "z-ai/glm-4.5": 0.195,
+  "z-ai/glm-4.5": 0.19,
   "z-ai/glm-4.5-air": 0.07,
   "z-ai/glm-4.5-air:free": 0,
-  "z-ai/glm-4.5v": 0.25
+  "z-ai/glm-4.5v": 0.3,
+  "z-ai/glm-4.6": 0.3
 }
