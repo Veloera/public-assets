@@ -182,15 +182,20 @@ $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
   </div>
 
   <script>
-    // 简单暗黑模式切换按钮（可选）
-    const root = document.documentElement;
-    const toggle = document.createElement("button");
-    toggle.innerText = "🌗";
-    toggle.className = "fixed bottom-4 right-4 px-3 py-1 rounded-md bg-slate-200 dark:bg-slate-700 text-sm";
-    toggle.onclick = () => {
-      root.classList.toggle("dark");
-    };
-    document.body.appendChild(toggle);
+  const root = document.documentElement;
+
+  // 根据父窗口消息设置默认主题
+  window.addEventListener('message', (event) => {
+    if (event.data.msgType === 'theme') {
+      const theme = event.data.data.themeMode;
+      if (theme === 'dark') {
+        root.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+      }
+      console.log('Theme mode:', theme);
+    }
+  });
   </script>
 </body>
 </html>
