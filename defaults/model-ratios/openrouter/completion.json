@@ -89,7 +89,7 @@
   "google/gemma-2-27b-it": 1,
   "google/gemma-2-9b-it": 2,
   "google/gemma-2-9b-it:free": 0,
-  "google/gemma-3-12b-it": 3.5,
+  "google/gemma-3-12b-it": 3.25,
   "google/gemma-3-12b-it:free": 0,
   "google/gemma-3-27b-it": 3.714285714286,
   "google/gemma-3-27b-it:free": 0,
@@ -229,7 +229,6 @@
   "openai/gpt-5-mini": 8,
   "openai/gpt-5-nano": 8,
   "openai/gpt-oss-120b": 10,
-  "openai/gpt-oss-120b:free": 0,
   "openai/gpt-oss-20b": 4.666666666667,
   "openai/gpt-oss-20b:free": 0,
   "openai/o1": 4,
@@ -328,5 +327,5 @@
   "z-ai/glm-4.5-air": 6.142857142857,
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 3,
-  "z-ai/glm-4.6": 3.333333333333
+  "z-ai/glm-4.6": 3.5
 }
