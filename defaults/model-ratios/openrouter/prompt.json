@@ -136,7 +136,7 @@
   "microsoft/phi-4-reasoning-plus": 0.035,
   "microsoft/wizardlm-2-8x22b": 0.24,
   "minimax/minimax-01": 0.1,
-  "minimax/minimax-m1": 0.15,
+  "minimax/minimax-m1": 0.2,
   "mistralai/codestral-2501": 0.15,
   "mistralai/codestral-2508": 0.15,
   "mistralai/devstral-medium": 0.2,

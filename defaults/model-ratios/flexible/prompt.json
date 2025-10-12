@@ -171,7 +171,7 @@
   "mercury": 0.125,
   "mercury-coder": 0.125,
   "minimax-01": 0.1,
-  "minimax-m1": 0.15,
+  "minimax-m1": 0.2,
   "ministral-3b": 0.02,
   "ministral-8b": 0.05,
   "mistral-7b-instruct": 0.014,
