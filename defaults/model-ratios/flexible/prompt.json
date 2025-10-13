@@ -1,5 +1,5 @@
 {
-  "afm-4.5b": 0.05,
+  "afm-4.5b": 0.024,
   "aion-1.0": 2,
   "aion-1.0-mini": 0.35,
   "aion-rp-llama-3.1-8b": 0.1,
@@ -139,6 +139,7 @@
   "l3.3-euryale-70b": 0.325,
   "lfm-3b": 0.01,
   "lfm-7b": 0.005,
+  "ling-1t": 0.5,
   "llama-3-70b-instruct": 0.15,
   "llama-3-8b-instruct": 0.015,
   "llama-3.1-405b": 2,
