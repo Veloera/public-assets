@@ -174,7 +174,7 @@
   "mistralai/mistral-small-3.2-24b-instruct": 0.03,
   "mistralai/mistral-small-3.2-24b-instruct:free": 0,
   "mistralai/mistral-tiny": 0.125,
-  "mistralai/mixtral-8x22b-instruct": 0.45,
+  "mistralai/mixtral-8x22b-instruct": 1,
   "mistralai/mixtral-8x7b-instruct": 0.27,
   "mistralai/pixtral-12b": 0.05,
   "mistralai/pixtral-large-2411": 1,

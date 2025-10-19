@@ -196,7 +196,7 @@
   "mistral-small-3.1-24b-instruct": 2,
   "mistral-small-3.2-24b-instruct": 3,
   "mistral-tiny": 1,
-  "mixtral-8x22b-instruct": 1,
+  "mixtral-8x22b-instruct": 3,
   "mixtral-8x7b-instruct": 1,
   "molmo-7b-d": 2,
   "morph-v3-fast": 1.5,
