@@ -70,6 +70,7 @@
   "deepseek/deepseek-r1-distill-qwen-32b": 0.135,
   "deepseek/deepseek-r1:free": 0,
   "deepseek/deepseek-v3.1-terminus": 0.115,
+  "deepseek/deepseek-v3.1-terminus:exacto": 0.135,
   "deepseek/deepseek-v3.2-exp": 0.135,
   "eleutherai/llemma_7b": 0.4,
   "google/gemini-2.0-flash-001": 0.05,
@@ -180,6 +181,7 @@
   "moonshotai/kimi-dev-72b:free": 0,
   "moonshotai/kimi-k2": 0.07,
   "moonshotai/kimi-k2-0905": 0.195,
+  "moonshotai/kimi-k2-0905:exacto": 0.3,
   "moonshotai/kimi-k2:free": 0,
   "morph/morph-v3-fast": 0.4,
   "morph/morph-v3-large": 0.45,
@@ -190,6 +192,7 @@
   "nousresearch/deephermes-3-mistral-24b-preview": 0.075,
   "nousresearch/hermes-2-pro-llama-3-8b": 0.0125,
   "nousresearch/hermes-3-llama-3.1-405b": 0.5,
+  "nousresearch/hermes-3-llama-3.1-405b:free": 0,
   "nousresearch/hermes-3-llama-3.1-70b": 0.15,
   "nousresearch/hermes-4-405b": 0.15,
   "nousresearch/hermes-4-70b": 0.055,
@@ -231,6 +234,7 @@
   "openai/gpt-5-nano": 0.025,
   "openai/gpt-5-pro": 7.5,
   "openai/gpt-oss-120b": 0.02,
+  "openai/gpt-oss-120b:exacto": 0.025,
   "openai/gpt-oss-20b": 0.015,
   "openai/gpt-oss-20b:free": 0,
   "openai/o1": 7.5,
@@ -287,6 +291,7 @@
   "qwen/qwen3-coder-30b-a3b-instruct": 0.03,
   "qwen/qwen3-coder-flash": 0.15,
   "qwen/qwen3-coder-plus": 0.5,
+  "qwen/qwen3-coder:exacto": 0.19,
   "qwen/qwen3-coder:free": 0,
   "qwen/qwen3-max": 0.6,
   "qwen/qwen3-next-80b-a3b-instruct": 0.05,
@@ -335,5 +340,6 @@
   "z-ai/glm-4.5-air": 0.065,
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 0.3,
-  "z-ai/glm-4.6": 0.25
+  "z-ai/glm-4.6": 0.25,
+  "z-ai/glm-4.6:exacto": 0.3
 }
