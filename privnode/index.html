@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privnode — Claude Code 中转服务</title>
+  <title>Privnode</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -30,45 +30,46 @@
             <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold">PV</div>
             <div>
               <h1 class="text-2xl font-semibold">Privnode</h1>
-              <p class="text-sm muted dark:text-slate-400">Claude Code 中转服务</p>
+              <p class="text-sm muted dark:text-slate-400">一站式 AI API 聚合</p>
             </div>
           </div>
         </div>
         <div class="text-right">
           <div class="badge">¥1 = $1 站内额度</div>
-          <div class="mt-2 text-sm muted dark:text-slate-400">CC 分组常态化 0.3 倍率</div>
         </div>
       </header>
 
-      <!-- 使用须知 -->
+      <!-- 使用须知 
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <div class="flex items-start justify-between">
           <div>
             <h2 class="text-lg font-semibold">使用须知</h2>
-<!--             <p class="mt-2 muted dark:text-slate-400">本站 <strong>不提供</strong> Claude Opus 系列模型</p> -->
+<!--             <p class="mt-2 muted dark:text-slate-400">本站 <strong>不提供</strong> Claude Opus 系列模型</p> 
             <p class="mt-2 muted dark:text-slate-400">禁止二次分发/逆向/在 CC 外使用，违规将被封禁。</p>
           </div>
           <!--
           <div class="ml-4">
             <span class="pill">禁止二次分发</span>
           </div>
-          -->
+          
         </div>
-      </section>
+      </section>-->
 
       <!-- 活动 -->
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">活动</h2>
-        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">🎉 开业特惠：特价分组现在是 <strong>0.15 倍率</strong>！这相当于 0.15 元每刀！</p>
+        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400">🎉 Claude 特价分组，可在 CC 外使用，并且<b>完全相同的价格</b>！</p>
       </section>
 
       <!-- 分组说明 -->
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">分组说明</h2>
         <ul class="list-disc pl-6 text-sm space-y-2">
-          <li><strong>default</strong>：默认分组，可在 CC 外使用。禁止 NSFW 与高并发。</li>
           <li><strong>Claude Code</strong>：CC 专用分组，禁止在 CC 外使用。</li>
-          <li><strong>特价</strong>：特价分组，不定时开启低倍率。</li>
+          <li><strong>Azure</strong>：纯 API 级别 GPT 5，可在 Codex 外使用。</li>
+          <li><strong>Codex</strong>：0.2 倍率 Codex 专用分组，可用 GPT 5。</li>
+          <li><strong>Grok</strong>：低价的 Grok 官逆。</li>
+          <li><strong>Vertex</strong>：0.5 倍率的 GCP 官 API，可用 Gemini 3.5 Pro。</li>
         </ul>
       </section>
 
@@ -126,8 +127,7 @@
       </section>
       -->
 
-      <!-- 一次性配置指南 -->
-      <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
+      <!-- 一次性配置指南 :bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">一次性配置指南</h2>
         <div class="mb-4">
           <p class="font-medium">Linux / macOS:</p>
@@ -141,7 +141,7 @@ $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
         </div>
       </section>
 
-      <!-- 持久化配置指南 -->
+      <!-- 持久化配置指南 
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">持久化配置指南</h2>
         <p class="text-sm mb-2">修改 <code>~/.claude/settings.json</code>：</p>
@@ -151,7 +151,7 @@ $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
         "ANTHROPIC_AUTH_TOKEN": "您的 API Key"
     }
 }</code></pre>
-      </section>
+      </section>-->
 
       <!-- 
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
