@@ -327,6 +327,7 @@
   "minimax-m1": 0.2,
   "minimax/minimax-01": 0.1,
   "minimax/minimax-m1": 0.2,
+  "minimax/minimax-m2:free": 0,
   "ministral-3b": 0.02,
   "ministral-8b": 0.05,
   "mistral-7b-instruct": 0.014,
