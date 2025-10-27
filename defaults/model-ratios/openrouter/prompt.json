@@ -299,10 +299,11 @@
   "qwen/qwen3-max": 0.6,
   "qwen/qwen3-next-80b-a3b-instruct": 0.05,
   "qwen/qwen3-next-80b-a3b-thinking": 0.075,
-  "qwen/qwen3-vl-235b-a22b-instruct": 0.15,
+  "qwen/qwen3-vl-235b-a22b-instruct": 0.11,
   "qwen/qwen3-vl-235b-a22b-thinking": 0.15,
-  "qwen/qwen3-vl-30b-a3b-instruct": 0.1,
+  "qwen/qwen3-vl-30b-a3b-instruct": 0.075,
   "qwen/qwen3-vl-30b-a3b-thinking": 0.1,
+  "qwen/qwen3-vl-32b-instruct": 0.175,
   "qwen/qwen3-vl-8b-instruct": 0.04,
   "qwen/qwen3-vl-8b-thinking": 0.09,
   "qwen/qwq-32b": 0.075,
@@ -343,6 +344,6 @@
   "z-ai/glm-4.5-air": 0.065,
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 0.3,
-  "z-ai/glm-4.6": 0.25,
+  "z-ai/glm-4.6": 0.225,
   "z-ai/glm-4.6:exacto": 0.3
 }
