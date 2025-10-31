@@ -181,6 +181,7 @@
   "mistralai/mixtral-8x7b-instruct": 0.27,
   "mistralai/pixtral-12b": 0.05,
   "mistralai/pixtral-large-2411": 1,
+  "mistralai/voxtral-small-24b-2507": 0.05,
   "moonshotai/kimi-dev-72b": 0.145,
   "moonshotai/kimi-dev-72b:free": 0,
   "moonshotai/kimi-k2": 0.07,
@@ -254,10 +255,12 @@
   "openai/o4-mini": 0.55,
   "openai/o4-mini-deep-research": 1,
   "openai/o4-mini-high": 0.55,
+  "openai/text-embedding-3-large": 0.065,
   "opengvlab/internvl3-78b": 0.035,
   "perplexity/sonar": 0.5,
   "perplexity/sonar-deep-research": 1,
   "perplexity/sonar-pro": 1.5,
+  "perplexity/sonar-pro-search": 1.5,
   "perplexity/sonar-reasoning": 0.5,
   "perplexity/sonar-reasoning-pro": 1,
   "qwen/qwen-2.5-72b-instruct": 0.035,
@@ -345,5 +348,5 @@
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 0.3,
   "z-ai/glm-4.6": 0.2,
-  "z-ai/glm-4.6:exacto": 0.3
+  "z-ai/glm-4.6:exacto": 0.225
 }
