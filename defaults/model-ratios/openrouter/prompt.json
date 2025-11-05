@@ -309,8 +309,6 @@
   "sao10k/l3.1-70b-hanami-x1": 1.5,
   "sao10k/l3.1-euryale-70b": 0.325,
   "sao10k/l3.3-euryale-70b": 0.325,
-  "shisa-ai/shisa-v2-llama3.3-70b": 0.025,
-  "shisa-ai/shisa-v2-llama3.3-70b:free": 0,
   "stepfun-ai/step3": 0.285,
   "switchpoint/router": 0.425,
   "tencent/hunyuan-a13b-instruct": 0.07,
