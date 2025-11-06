@@ -40,7 +40,7 @@
   "deepseek-prover-v2": 0.25,
   "deepseek-r1": 0.15,
   "deepseek-r1-0528": 0.2,
-  "deepseek-r1-0528-qwen3-8b": 0.015,
+  "deepseek-r1-0528-qwen3-8b": 0.01,
   "deepseek-r1-distill-llama-70b": 0.015,
   "deepseek-r1-distill-qwen-14b": 0.075,
   "deepseek-r1-distill-qwen-32b": 0.135,
