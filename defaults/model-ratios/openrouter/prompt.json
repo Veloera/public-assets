@@ -179,7 +179,7 @@
   "mistralai/pixtral-large-2411": 1,
   "mistralai/voxtral-small-24b-2507": 0.05,
   "moonshotai/kimi-dev-72b": 0.145,
-  "moonshotai/kimi-k2": 0.07,
+  "moonshotai/kimi-k2": 0.25,
   "moonshotai/kimi-k2-0905": 0.195,
   "moonshotai/kimi-k2-0905:exacto": 0.3,
   "moonshotai/kimi-k2-thinking": 0.3,
