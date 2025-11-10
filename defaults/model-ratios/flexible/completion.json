@@ -198,7 +198,7 @@
   "mistral-saba": 3,
   "mistral-small": 3,
   "mistral-small-24b-instruct-2501": 1.6,
-  "mistral-small-3.1-24b-instruct": 2,
+  "mistral-small-3.1-24b-instruct": 4.4,
   "mistral-small-3.2-24b-instruct": 3,
   "mistral-tiny": 1,
   "mixtral-8x22b-instruct": 3,
