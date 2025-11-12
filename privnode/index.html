@@ -165,6 +165,8 @@ $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
 
             <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">Codex - 配置指南</h2>
+        <div class="mb-4">
+          <p class="font-medium">Windows:</p>
         <p class="text-sm mb-2"><code>%USERPROFILE%\.codex\config.toml</code>：</p>
         <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>model_provider = "privnode"
 model = "gpt-5-codex"
@@ -181,6 +183,29 @@ requires_openai_auth = true</code></pre>
         <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>{
 "OPENAI_API_KEY": "apikey"
 }</code></pre>
+        </div>
+
+                      <div class="mb-4">
+          <p class="font-medium">Linux / macOS:</p>
+        <p class="text-sm mb-2"><code>~/.codex/config.toml</code>：</p>
+        <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>model_provider = "privnode"
+model = "gpt-5-codex"
+model_reasoning_effort = "high"
+disable_response_storage = true
+
+[model_providers.privnode]
+name = "Privnode"
+base_url = "https://privnode.com/v1"
+wire_api = "responses"
+env_key = "custom"
+requires_openai_auth = true</code></pre>
+              <p class="text-sm mb-2"><code>~/.codex/auth.json</code>：</p>
+        <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>{
+"OPENAI_API_KEY": "apikey"
+}</code></pre>
+        </div>
+
+        
       </section>
 
       <!-- 
