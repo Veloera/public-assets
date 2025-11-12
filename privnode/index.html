@@ -77,7 +77,7 @@
       <section class="card bg-white dark:bg-slate-900 p-6 mb-4">
         <h2 class="text-lg font-semibold mb-3">分组说明</h2>
         <ul class="list-disc pl-6 text-sm space-y-2">
-          <li><strong>Claude Code</strong>：CC 专用分组，禁止在 CC 外使用。</li>
+          <li><strong>Claude Code</strong>：CC 专用分组，禁止在 CC 外使用。纯 MAX 号池。</li>
           <li><strong>Azure</strong>：纯 API 级别 GPT 5，可在 Codex 外使用。</li>
           <li><strong>Codex</strong>：0.2 倍率 Codex 专用分组，可用 GPT 5。</li>
           <li><strong>Grok</strong>：低价的 Grok 官逆。</li>
@@ -144,12 +144,12 @@
         <h2 class="text-lg font-semibold mb-3">Claude Code - 一次性配置指南</h2>
         <div class="mb-4">
           <p class="font-medium">Linux / macOS:</p>
-          <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>export ANTHROPIC_BASE_URL=https://pro.privnode.com
+          <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>export ANTHROPIC_BASE_URL=https://privnode.com
 export ANTHROPIC_AUTH_TOKEN=您的 API Key</code></pre>
         </div>
         <div>
           <p class="font-medium">Windows (PowerShell):</p>
-          <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>$env:ANTHROPIC_BASE_URL="https://pro.privnode.com"
+          <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>$env:ANTHROPIC_BASE_URL="https://privnode.com"
 $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
         </div>
 
@@ -157,7 +157,7 @@ $env:ANTHROPIC_AUTH_TOKEN="您的 API Key"</code></pre>
         <p class="text-sm mb-2">修改 <code>~/.claude/settings.json</code>：</p>
         <pre class="code rounded-md p-4 bg-slate-900 text-slate-100"><code>{
     "env": {
-        "ANTHROPIC_BASE_URL": "https://pro.privnode.com",
+        "ANTHROPIC_BASE_URL": "https://privnode.com",
         "ANTHROPIC_AUTH_TOKEN": "您的 API Key"
     }
 }</code></pre>
