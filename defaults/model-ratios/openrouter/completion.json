@@ -142,7 +142,6 @@
   "minimax/minimax-01": 5.5,
   "minimax/minimax-m1": 5.5,
   "minimax/minimax-m2": 4,
-  "minimax/minimax-m2:free": 0,
   "mistralai/codestral-2501": 3,
   "mistralai/codestral-2508": 3,
   "mistralai/devstral-medium": 5,
@@ -339,5 +338,5 @@
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 3,
   "z-ai/glm-4.6": 4.375,
-  "z-ai/glm-4.6:exacto": 4.222222222222
+  "z-ai/glm-4.6:exacto": 3.666666666667
 }

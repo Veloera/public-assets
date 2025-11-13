@@ -153,7 +153,7 @@
   "glm-4.5-air": 0.065,
   "glm-4.5v": 0.3,
   "glm-4.6": 0.2,
-  "glm-4.6:exacto": 0.225,
+  "glm-4.6:exacto": 0.3,
   "goliath-120b": 3,
   "google/gemini-2.0-flash-001": 0.05,
   "google/gemini-2.0-flash-exp:free": 0,
@@ -326,7 +326,6 @@
   "minimax/minimax-01": 0.1,
   "minimax/minimax-m1": 0.2,
   "minimax/minimax-m2": 0.1275,
-  "minimax/minimax-m2:free": 0,
   "ministral-3b": 0.02,
   "ministral-8b": 0.05,
   "mistral-7b-instruct": 0.014,
@@ -632,5 +631,5 @@
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 0.3,
   "z-ai/glm-4.6": 0.2,
-  "z-ai/glm-4.6:exacto": 0.225
+  "z-ai/glm-4.6:exacto": 0.3
 }
