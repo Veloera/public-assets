@@ -1,5 +1,4 @@
 {
-  "afm-4.5b": 0.024,
   "ai21/jamba-large-1.7": 1,
   "ai21/jamba-mini-1.7": 0.1,
   "aion-1.0": 2,
@@ -34,7 +33,6 @@
   "anthropic/claude-sonnet-4": 1.5,
   "anthropic/claude-sonnet-4.5": 1.5,
   "anubis-70b-v1.1": 0.325,
-  "arcee-ai/afm-4.5b": 0.024,
   "arcee-ai/coder-large": 0.25,
   "arcee-ai/maestro-reasoning": 0.45,
   "arcee-ai/spotlight": 0.09,
