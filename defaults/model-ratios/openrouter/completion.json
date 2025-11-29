@@ -7,7 +7,7 @@
   "alfredpros/codellama-7b-instruct-solidity": 1.5,
   "alibaba/tongyi-deepresearch-30b-a3b": 4.444444444444,
   "alibaba/tongyi-deepresearch-30b-a3b:free": 0,
-  "allenai/olmo-2-0325-32b-instruct": 1.75,
+  "allenai/olmo-2-0325-32b-instruct": 4,
   "allenai/olmo-3-32b-think": 1.833333333333,
   "allenai/olmo-3-7b-instruct": 2,
   "allenai/olmo-3-7b-think": 1.666666666667,
@@ -59,7 +59,6 @@
   "deepseek/deepseek-r1-0528": 22.5,
   "deepseek/deepseek-r1-0528-qwen3-8b": 5,
   "deepseek/deepseek-r1-distill-llama-70b": 4.333333333333,
-  "deepseek/deepseek-r1-distill-llama-70b:free": 0,
   "deepseek/deepseek-r1-distill-qwen-14b": 1,
   "deepseek/deepseek-r1-distill-qwen-32b": 1,
   "deepseek/deepseek-v3.1-terminus": 3.703703703704,
@@ -323,10 +322,10 @@
   "x-ai/grok-4.1-fast:free": 0,
   "x-ai/grok-code-fast-1": 7.5,
   "z-ai/glm-4-32b": 1,
-  "z-ai/glm-4.5": 4.285714285714,
+  "z-ai/glm-4.5": 4.428571428571,
   "z-ai/glm-4.5-air": 6.538461538462,
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 3,
   "z-ai/glm-4.6": 4.375,
-  "z-ai/glm-4.6:exacto": 4.222222222222
+  "z-ai/glm-4.6:exacto": 4
 }

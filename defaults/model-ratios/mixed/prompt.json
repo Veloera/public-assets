@@ -10,7 +10,7 @@
   "alfredpros/codellama-7b-instruct-solidity": 0.4,
   "alibaba/tongyi-deepresearch-30b-a3b": 0.045,
   "alibaba/tongyi-deepresearch-30b-a3b:free": 0,
-  "allenai/olmo-2-0325-32b-instruct": 0.1,
+  "allenai/olmo-2-0325-32b-instruct": 0.025,
   "allenai/olmo-3-32b-think": 0.15,
   "allenai/olmo-3-7b-instruct": 0.05,
   "allenai/olmo-3-7b-think": 0.06,
@@ -108,7 +108,6 @@
   "deepseek/deepseek-r1-0528": 0.1,
   "deepseek/deepseek-r1-0528-qwen3-8b": 0.01,
   "deepseek/deepseek-r1-distill-llama-70b": 0.015,
-  "deepseek/deepseek-r1-distill-llama-70b:free": 0,
   "deepseek/deepseek-r1-distill-qwen-14b": 0.06,
   "deepseek/deepseek-r1-distill-qwen-32b": 0.12,
   "deepseek/deepseek-v3.1-terminus": 0.108,
@@ -148,7 +147,7 @@
   "glm-4.5-air": 0.052,
   "glm-4.5v": 0.24,
   "glm-4.6": 0.2,
-  "glm-4.6:exacto": 0.225,
+  "glm-4.6:exacto": 0.22,
   "goliath-120b": 3,
   "google/gemini-2.0-flash-001": 0.05,
   "google/gemini-2.0-flash-exp:free": 0,
@@ -418,7 +417,7 @@
   "o4-mini": 0.55,
   "o4-mini-deep-research": 1,
   "o4-mini-high": 0.55,
-  "olmo-2-0325-32b-instruct": 0.1,
+  "olmo-2-0325-32b-instruct": 0.025,
   "olmo-3-32b-think": 0.15,
   "olmo-3-7b-instruct": 0.05,
   "olmo-3-7b-think": 0.06,
@@ -628,5 +627,5 @@
   "z-ai/glm-4.5-air:free": 0,
   "z-ai/glm-4.5v": 0.24,
   "z-ai/glm-4.6": 0.2,
-  "z-ai/glm-4.6:exacto": 0.225
+  "z-ai/glm-4.6:exacto": 0.22
 }
