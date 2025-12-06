@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>会员等级与权益 | Pricing Tiers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        accent: '#3b82f6',
+                        tier1: '#94a3b8',
+                        tier2: '#22d3ee',
+                        tier3: '#818cf8',
+                        tier4: '#f472b6',
+                        tier5: '#facc15',
+                        legacy: '#fb923c'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-200 min-h-screen pb-20">
+
+    <!-- Header -->
+    <header class="pt-16 pb-10 px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+            <span class="bg-gradient-to-r from-blue-400 to-purple-500 gradient-text text-transparent">会员等级体系</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+            基于实付金额的透明分级制度，为您提供更优质的 API 服务与 SLA 保障。
+        </p>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Rules & Policies Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <!-- Calculation Rules -->
+            <div class="bg-card border border-slate-700 rounded-xl p-6 shadow-lg">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                    <i class="fa-solid fa-calculator mr-2 text-accent"></i> 计算规则
+                </h3>
+                <ul class="space-y-3 text-slate-300 text-sm">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-clock mt-1 mr-2 text-slate-500"></i>
+                        <span><strong>每整点</strong>进行一次升级检查。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-money-bill-wave mt-1 mr-2 text-slate-500"></i>
+                        <span>等级按照<strong>实付金额</strong>计算（兑换码不计入）。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-brands fa-stripe mt-1 mr-2 text-slate-500"></i>
+                        <span>Stripe 充值时，按照<strong>折扣前</strong>金额计算。</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Old User Policy -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-indigo-500/30 rounded-xl p-6 shadow-lg relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-indigo-600 text-xs px-2 py-1 rounded-bl-lg text-white font-bold">老用户回馈</div>
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                    <i class="fa-solid fa-medal mr-2 text-indigo-400"></i> 历史用户权益
+                </h3>
+                <div class="space-y-4 text-sm">
+                    <div class="bg-indigo-900/30 p-3 rounded-lg border border-indigo-500/20">
+                        <p class="font-semibold text-indigo-200 mb-1">📅 10月9日（含）前曾充值</p>
+                        <p class="text-slate-400">自动升级 <span class="text-white font-bold">Tier 3</span>。如满足更高标准，按最高级处理。</p>
+                    </div>
+                    <div class="bg-indigo-900/30 p-3 rounded-lg border border-indigo-500/20">
+                        <p class="font-semibold text-indigo-200 mb-1">📅 11月1日 - 12月1日（不含）曾充值</p>
+                        <p class="text-slate-400">享受 <span class="text-white font-bold">等级+1</span> 待遇。例如满足 Tier 2 条件，直接升级为 Tier 3。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Legacy Tier -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6 pl-2 border-l-4 border-legacy">限定等级</h2>
+            <div class="bg-gradient-to-r from-orange-900/20 to-slate-900 border border-orange-500/40 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center relative">
+                <div class="absolute top-4 right-4 text-orange-500/20 text-6xl font-black select-none pointer-events-none">LEGACY</div>
+                <div class="md:w-2/3 z-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-3xl font-bold text-orange-400">Legacy Tier</h3>
+                        <span class="bg-orange-500/20 text-orange-300 text-xs px-2 py-1 rounded border border-orange-500/30">绝版</span>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        仅限 11月1日 至 12月1日 期间充值用户自助选择加入。
+                    </p>
+                    <div class="bg-orange-950/40 p-3 rounded-lg border border-orange-500/20 inline-block mb-4 md:mb-0">
+                        <p class="text-xs text-orange-200">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> 
+                            此等级将于 <strong>2025年12月20日</strong> 被禁用，届时将自动转入 Tier 2。
+                        </p>
+                    </div>
+                </div>
+                <div class="md:w-1/3 w-full border-t md:border-t-0 md:border-l border-slate-700 pt-4 md:pt-0 md:pl-8 z-10">
+                    <p class="text-sm text-slate-400 uppercase tracking-wider mb-2 font-semibold">专属倍率</p>
+                    <div class="flex justify-between items-center bg-slate-800/50 p-3 rounded">
+                        <span class="text-slate-200">Claude Code</span>
+                        <span class="text-orange-400 font-mono font-bold">0.35x</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Standard Tiers Grid -->
+        <h2 class="text-2xl font-bold text-white mb-6 pl-2 border-l-4 border-tier2">标准等级</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Tier 0 -->
+            <div class="bg-card border border-slate-700 rounded-2xl p-6 flex flex-col hover:border-slate-500 transition-colors">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-slate-400">Tier 0</h3>
+                    <p class="text-sm text-slate-500">新用户默认</p>
+                </div>
+                <div class="mb-6 space-y-2">
+                    <div class="flex items-center text-slate-400 text-sm">
+                        <i class="fa-solid fa-ban mr-2 w-5 text-center"></i> 不享受 SLA 保证
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">倍率</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-300">Free 模型</span>
+                        <span class="text-slate-400 font-mono">0.1x</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 1 -->
+            <div class="bg-card border border-tier1 rounded-2xl p-6 flex flex-col hover:shadow-lg hover:shadow-tier1/10 transition-all">
+                <div class="mb-4">
+                    <h3 class="text-2xl font-bold text-slate-200">Tier 1</h3>
+                    <div class="mt-2 text-sm">
+                        <p class="text-slate-300">充值 <span class="text-xl font-bold text-white">¥10+</span></p>
+                    </div>
+                </div>
+                <div class="mb-6 space-y-2">
+                    <div class="flex items-center text-tier1 text-sm">
+                        <i class="fa-solid fa-shield-halved mr-2 w-5 text-center"></i> 90% SLA 保证
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">倍率</p>
+                    <div class="text-slate-300 text-sm">默认倍率</div>
+                </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="bg-card border border-tier2 rounded-2xl p-6 flex flex-col hover:shadow-lg hover:shadow-tier2/10 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-tier2/10 w-24 h-24 rounded-bl-full -mr-4 -mt-4"></div>
+                <div class="mb-4 z-10 relative">
+                    <h3 class="text-2xl font-bold text-tier2">Tier 2</h3>
+                    <div class="mt-2 text-sm space-y-1">
+                        <p class="text-slate-300">充值 <span class="text-xl font-bold text-white">¥60+</span></p>
+                        <p class="text-slate-400 text-xs">且 消费 <span class="font-bold">¥1.00+</span></p>
+                    </div>
+                </div>
+                <div class="mb-6 space-y-2 relative z-10">
+                    <!-- Standard SLA implied or None mentioned -->
+                    <div class="h-5"></div> 
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50 z-10 relative">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">倍率优惠</p>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center text-sm">
+                            <span class="text-slate-300">Claude NSFW</span>
+                            <span class="text-tier2 font-mono font-bold">0.6x</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm">
+                            <span class="text-slate-300">Claude Code</span>
+                            <span class="text-tier2 font-mono font-bold">0.45x</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="bg-card border border-tier3 rounded-2xl p-6 flex flex-col hover:shadow-lg hover:shadow-tier3/10 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-tier3/10 w-24 h-24 rounded-bl-full -mr-4 -mt-4"></div>
+                <div class="mb-4 z-10 relative">
+                    <h3 class="text-2xl font-bold text-tier3">Tier 3</h3>
+                    <div class="mt-2 text-sm space-y-1">
+                        <p class="text-slate-300">充值 <span class="text-xl font-bold text-white">¥150+</span></p>
+                        <p class="text-slate-400 text-xs">且 消费 <span class="font-bold">¥10.00+</span></p>
+                    </div>
+                </div>
+                <div class="mb-6 space-y-2 relative z-10">
+                    <div class="flex items-center text-tier3 text-sm font-medium">
+                        <i class="fa-solid fa-shield-halved mr-2 w-5 text-center"></i> 95% SLA 保证
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50 z-10 relative">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">倍率优惠</p>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center text-sm">
+                            <span class="text-slate-300">Claude 1h缓存</span>
+                            <span class="text-tier3 font-mono font-bold">0.7x</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tier 4 -->
+            <div class="bg-card border border-tier4 rounded-2xl p-6 flex flex-col hover:shadow-lg hover:shadow-tier4/10 transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-tier4/10 w-24 h-24 rounded-bl-full -mr-4 -mt-4"></div>
+                <div class="mb-4 z-10 relative">
+                    <h3 class="text-2xl font-bold text-tier4">Tier 4</h3>
+                    <div class="mt-2 text-sm space-y-1">
+                        <p class="text-slate-300">充值 <span class="text-xl font-bold text-white">¥470+</span></p>
+                        <p class="text-slate-400 text-xs">且 消费 <span class="font-bold">¥50.00+</span></p>
+                    </div>
+                </div>
+                <div class="mb-6 space-y-2 relative z-10">
+                    <div class="flex items-start text-tier4 text-sm font-medium bg-tier4/10 p-2 rounded">
+                        <i class="fa-solid fa-rocket mt-1 mr-2 w-5 text-center"></i> 
+                        <span>CC 分组专属<br>高可用性后备渠道</span>
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50 z-10 relative">
+                    <p class="text-xs text-slate-500 uppercase tracking-wider mb-2">权益</p>
+                    <div class="text-slate-300 text-sm">Tier 3 所有优惠 + 渠道特权</div>
+                </div>
+            </div>
+
+            <!-- Tier 5 -->
+            <div class="bg-gradient-to-b from-card to-slate-900 border-2 border-tier5 rounded-2xl p-6 flex flex-col shadow-2xl shadow-tier5/20 transform hover:-translate-y-1 transition-all relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-300 to-yellow-600"></div>
+                <div class="mb-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">Tier 5</h3>
+                        <i class="fa-solid fa-crown text-yellow-500 text-xl"></i>
+                    </div>
+                    <div class="mt-4 text-sm space-y-1">
+                        <p class="text-slate-300">充值 <span class="text-2xl font-bold text-white">¥730+</span></p>
+                        <p class="text-slate-400 text-xs">且 消费 <span class="font-bold">¥70.00+</span></p>
+                    </div>
+                </div>
+                <div class="mb-6 space-y-2">
+                    <div class="flex items-center text-yellow-400 text-sm font-bold bg-yellow-500/10 p-2 rounded border border-yellow-500/20">
+                        <i class="fa-solid fa-shield mr-2 w-5 text-center"></i> 97% SLA 极致保障
+                    </div>
+                </div>
+                <div class="mt-auto pt-6 border-t border-slate-700/50">
+                    <p class="text-xs text-yellow-500/80 uppercase tracking-wider mb-2 font-bold">尊享倍率</p>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center text-sm bg-yellow-900/20 p-2 rounded">
+                            <span class="text-slate-200">Claude Code</span>
+                            <span class="text-yellow-400 font-mono font-bold">0.4x</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="mt-20 border-t border-slate-800 pt-8 text-center text-slate-500 text-sm mb-8">
+            <p>&copy; 2024 Service Name. All rights reserved.</p>
+            <p class="mt-2 text-xs">SLA 计算基于每日历年。最终解释权归平台所有。</p>
+        </footer>
+    </main>
+
+</body>
+</html>
