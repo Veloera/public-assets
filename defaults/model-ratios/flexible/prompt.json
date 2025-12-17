@@ -80,7 +80,7 @@
   "glm-4.5": 0.175,
   "glm-4.5-air": 0.052,
   "glm-4.5v": 0.24,
-  "glm-4.6": 0.19,
+  "glm-4.6": 0.195,
   "glm-4.6:exacto": 0.22,
   "glm-4.6v": 0.15,
   "goliath-120b": 3,
@@ -208,6 +208,7 @@
   "mistral-small-24b-instruct-2501": 0.015,
   "mistral-small-3.1-24b-instruct": 0.015,
   "mistral-small-3.2-24b-instruct": 0.03,
+  "mistral-small-creative": 0.05,
   "mistral-tiny": 0.125,
   "mixtral-8x22b-instruct": 1,
   "mixtral-8x7b-instruct": 0.27,
@@ -278,6 +279,7 @@
   "qwen3-vl-235b-a22b-thinking": 0.15,
   "qwen3-vl-30b-a3b-instruct": 0.075,
   "qwen3-vl-30b-a3b-thinking": 0.08,
+  "qwen3-vl-32b-instruct": 0.25,
   "qwen3-vl-8b-instruct": 0.032,
   "qwen3-vl-8b-thinking": 0.09,
   "qwq-32b": 0.075,
@@ -304,6 +306,6 @@
   "unslopnemo-12b": 0.2,
   "virtuoso-large": 0.375,
   "voxtral-small-24b-2507": 0.05,
-  "weaver": 0.5625,
+  "weaver": 0.375,
   "wizardlm-2-8x22b": 0.24
 }

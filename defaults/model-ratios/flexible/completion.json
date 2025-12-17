@@ -80,7 +80,7 @@
   "glm-4.5": 4.428571428571,
   "glm-4.5-air": 6.538461538462,
   "glm-4.5v": 3,
-  "glm-4.6": 4.447368421053,
+  "glm-4.6": 4.871794871795,
   "glm-4.6:exacto": 4,
   "glm-4.6v": 3,
   "goliath-120b": 1.333333333333,
@@ -208,6 +208,7 @@
   "mistral-small-24b-instruct-2501": 3.666666666667,
   "mistral-small-3.1-24b-instruct": 3.666666666667,
   "mistral-small-3.2-24b-instruct": 3,
+  "mistral-small-creative": 3,
   "mistral-tiny": 1,
   "mixtral-8x22b-instruct": 3,
   "mixtral-8x7b-instruct": 1,
@@ -278,6 +279,7 @@
   "qwen3-vl-235b-a22b-thinking": 4,
   "qwen3-vl-30b-a3b-instruct": 4,
   "qwen3-vl-30b-a3b-thinking": 5,
+  "qwen3-vl-32b-instruct": 3,
   "qwen3-vl-8b-instruct": 6.25,
   "qwen3-vl-8b-thinking": 11.666666666667,
   "qwq-32b": 2.666666666667,
@@ -304,6 +306,6 @@
   "unslopnemo-12b": 1,
   "virtuoso-large": 1.6,
   "voxtral-small-24b-2507": 3,
-  "weaver": 1,
+  "weaver": 1.333333333333,
   "wizardlm-2-8x22b": 1
 }
