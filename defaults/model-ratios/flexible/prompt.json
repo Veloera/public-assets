@@ -47,7 +47,7 @@
   "deepseek-v3.2": 0.12,
   "deepseek-v3.2-exp": 0.105,
   "deepseek-v3.2-speciale": 0.135,
-  "devstral-2512": 0.075,
+  "devstral-2512": 0.025,
   "devstral-medium": 0.2,
   "devstral-small": 0.035,
   "devstral-small-2505": 0.03,
